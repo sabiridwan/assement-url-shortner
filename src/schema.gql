@@ -1,0 +1,49 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Shortner {
+  _id: String!
+  name: String!
+  url: String!
+  shortUrl: String!
+  createdAt: Float!
+}
+
+type ShortnerPageResult {
+  totalRecords: Float!
+  data: [Shortner!]!
+}
+
+type Query {
+  deleteUrl(url: ShortnerUpdateInput!): Boolean!
+  findOneUrl(query: ShortnerQueryInput!): Shortner
+  findUrl(query: ShortnerQueryInput!): [Shortner!]!
+  urlPage(page: ShortnerPageInput!): ShortnerPageResult!
+}
+
+input ShortnerUpdateInput {
+  name: String
+  url: String
+}
+
+input ShortnerQueryInput {
+  _id: String
+  url: String
+}
+
+input ShortnerPageInput {
+  skip: Float!
+  take: Float!
+  kewyword: String
+}
+
+type Mutation {
+  createUrl(url: ShortnerCreateInput!): Shortner!
+  updateUrl(url: ShortnerUpdateInput!): Shortner!
+}
+
+input ShortnerCreateInput {
+  name: String!
+  url: String!
+}

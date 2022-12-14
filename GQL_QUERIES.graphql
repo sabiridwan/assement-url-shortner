@@ -1,0 +1,36 @@
+
+fragment Shortner on Shortner {
+  _id
+  name
+  url
+  shortUrl
+  createdAt
+}
+
+
+mutation CreateUrl{
+  createUrl(url:{name:"test",url:"test@gmail.com"}){
+	...Shortner
+  }
+}
+
+query FindUrl {
+  findUrl(query: {}) {
+    ...Shortner
+  }
+}
+
+query FindOneUrl {
+  findOneUrl(query: {}) {
+    ...Shortner
+  }
+}
+
+query UrlPage {
+  urlPage(page: { skip: 0, take: 50 }) {
+    totalRecords
+    data {
+      ...Shortner
+    }
+  }
+}
