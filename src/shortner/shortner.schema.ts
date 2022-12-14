@@ -6,9 +6,9 @@ export type ShortnerDocument = Shortner & Document;
 @Schema()
 export class Shortner {
   _id: Types.ObjectId;
-  @Prop()
+  @Prop({ required: true })
   url: string;
-  @Prop()
+  @Prop({ required: true, unique: true })
   shortUrl: string;
   @Prop()
   name: string;
@@ -17,6 +17,8 @@ export class Shortner {
 }
 
 export const ShortnerSchema = SchemaFactory.createForClass(Shortner);
+
+ShortnerSchema.index({ shortUrl: 1 });
 
 export class PageParams {
   skip?: number;

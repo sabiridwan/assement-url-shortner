@@ -1,4 +1,5 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { generateId, validateUrl } from 'src/utils';
 import { PageParams, PageResult, Shortner } from './shortner.schema';
 import { ShortnerRepository } from './shotner.repository';
 
@@ -7,12 +8,17 @@ export class ShortnerService {
   constructor(private readonly shortnerRepository: ShortnerRepository) {}
 
   public async create(model: Shortner): Promise<Shortner> {
-    model.shortUrl = model.url;
+    if (!validateUrl(model.url))
+      throw new HttpException('Invalid url provided', HttpStatus.BAD_REQUEST);
+
+    model.shortUrl = generateId();
     return this.shortnerRepository.create(model);
   }
 
   public async update(model: Partial<Shortner>): Promise<Shortner> {
-    if (model.url) model.shortUrl = model.url;
+    if (model.url && !validateUrl(model.url))
+      throw new HttpException('Invalid url provided', HttpStatus.BAD_REQUEST);
+
     return this.shortnerRepository.update(model._id, model);
   }
 
