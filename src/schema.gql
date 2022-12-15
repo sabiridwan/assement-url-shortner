@@ -16,6 +16,7 @@ type ShortnerPageResult {
 }
 
 type Query {
+  url(shortUrl: String!): Shortner!
   deleteUrl(url: ShortnerUpdateInput!): Boolean!
   findOneUrl(query: ShortnerQueryInput!): Shortner
   findUrl(query: ShortnerQueryInput!): [Shortner!]!
@@ -30,6 +31,7 @@ input ShortnerUpdateInput {
 input ShortnerQueryInput {
   _id: String
   url: String
+  shortUrl: String
 }
 
 input ShortnerPageInput {

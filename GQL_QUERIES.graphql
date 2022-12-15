@@ -8,14 +8,20 @@ fragment Shortner on Shortner {
 }
 
 
+query Url {
+  url(shortUrl:"ykKQcA") {
+    ...Shortner
+  }
+}
+
 mutation CreateUrl{
-  createUrl(url:{name:"test",url:"test@gmail.com"}){
+  createUrl(url:{name:"Test ",url:"http://test.com"}){
 	...Shortner
   }
 }
 
 query FindUrl {
-  findUrl(query: {}) {
+  findUrl(query: {url:"http://test.com"}) {
     ...Shortner
   }
 }

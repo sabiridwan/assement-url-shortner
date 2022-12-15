@@ -29,6 +29,14 @@ export class ShortnerResolver {
     return this.shortnerSvc.update(url as any);
   }
 
+  @Query((returns) => Shortner, { name: 'url' })
+  async url(
+    @Args('shortUrl')
+    url: string,
+  ) {
+    return await this.shortnerSvc.findOne({ shortUrl: url });
+  }
+
   @Query((returns) => Boolean, { name: 'deleteUrl' })
   async delete(
     @Args('url')

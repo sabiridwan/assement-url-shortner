@@ -36,6 +36,8 @@ export class ShortnerQueryInput {
   _id: string;
   @Field((type) => String, { nullable: true })
   url: string;
+  @Field((type) => String, { nullable: true })
+  shortUrl: string;
 }
 
 @InputType()

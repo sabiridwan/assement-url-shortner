@@ -1,5 +1,5 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { generateId, validateUrl } from 'src/utils';
+import { generateId, validateUrl } from '../utils';
 import { PageParams, PageResult, Shortner } from './shortner.schema';
 import { ShortnerRepository } from './shotner.repository';
 

@@ -1,16 +1,14 @@
 version: '3.8'
 services:
   url-shortner:
-    container_name: "url_shortner${node_env}"
-    image: "url_shortner${node_env}"
-    environment:
-      - node_env:${node_env}
+    container_name: "url_shortner"
+    image: "url_shortner"
     build:
       context: .
       dockerfile: Dockerfile
-    entrypoint: ["npm", "run", "start:${node_env}"]
+    entrypoint: ["npm", "run", "start:prod"]
     env_file:
-      - .env
+      - .env.production
     ports:
       - 3000:3000
     networks:

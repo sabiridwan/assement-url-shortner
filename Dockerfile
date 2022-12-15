@@ -3,7 +3,6 @@ WORKDIR "/"
 COPY . .
 RUN npm ci
 RUN npm run build
-# RUN npm i -g @nestjs/cli
 RUN npm prune --production
 FROM node:14-alpine AS production
 WORKDIR "/"
