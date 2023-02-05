@@ -4,8 +4,8 @@ import config from './config';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  await app.listen(config().port);
+  await app.listen(3000);
 
-  console.log(`Application started on port: ${config().port}`)
+  console.log(`Application started on port: ${3000}`)
 }
 bootstrap();
