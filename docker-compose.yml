@@ -1,8 +1,8 @@
 version: '3.8'
 services:
   url-shortner:
-    container_name: "url_shortner"
-    image: "url_shortner"
+    container_name: "url-shortner"
+    image: "url-shortner"
     build:
       context: .
       dockerfile: Dockerfile
