@@ -6,7 +6,6 @@
 # Logs
 logs
 *.log
-package-lock.json
 yarn.lock
 npm-debug.log*
 pnpm-debug.log*
@@ -36,3 +35,4 @@ lerna-debug.log*
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+dist
